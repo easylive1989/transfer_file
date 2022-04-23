@@ -40,9 +40,9 @@ class SearchDevicesPage extends StatelessWidget {
   }
 
   Future _openSelectDevicePage(BuildContext context, AsyncSnapshot<List<Device>> snapshot) async {
-    TransferResult? transferResult =
-        await Navigator.of(context).pushNamed<TransferResult>(SelectDevicePage.routeName, arguments: snapshot.data);
-    Navigator.of(context).pop(transferResult);
+    TransferAction? transferAction =
+        await Navigator.of(context).pushNamed<TransferAction>(SelectDevicePage.routeName, arguments: snapshot.data);
+    Navigator.of(context).pop(transferAction);
   }
 
   Future<List<Device>> _searchDevices() async {
