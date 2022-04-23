@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transfer_file/model/device.dart';
 import 'package:transfer_file/model/file.dart';
-import 'package:transfer_file/view/result/transfer_action.dart';
 
 class SelectFilePage extends StatefulWidget {
   static const String routeName = "select-file";
@@ -17,7 +15,6 @@ class _SelectFilePageState extends State<SelectFilePage> {
 
   @override
   Widget build(BuildContext context) {
-    Device selectedDevice = ModalRoute.of(context)!.settings.arguments as Device;
     List<File> files = _getFile();
     return Scaffold(
       appBar: AppBar(title: const Text("Transfer File")),
@@ -44,7 +41,7 @@ class _SelectFilePageState extends State<SelectFilePage> {
           OutlinedButton(
             onPressed: () async {
               if (selectedFile != null) {
-                Navigator.pop(context, TransferAction(selectedDevice, selectedFile!));
+                Navigator.pop(context, selectedFile!);
               }
             },
             child: const Text("Transfer"),

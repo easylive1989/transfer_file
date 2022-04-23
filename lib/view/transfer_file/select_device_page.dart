@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transfer_file/model/device.dart';
+import 'package:transfer_file/model/file.dart';
 import 'package:transfer_file/view/result/transfer_action.dart';
 import 'package:transfer_file/view/transfer_file/select_file_page.dart';
 
@@ -54,7 +55,9 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
   }
 
   Future _openTransferFilePage(BuildContext context) async {
-    TransferAction? transferAction = await Navigator.of(context).pushNamed<TransferAction>(SelectFilePage.routeName, arguments: selectedDevice);
-    Navigator.pop(context, transferAction);
+    File? file = await Navigator.of(context).pushNamed<File>(SelectFilePage.routeName);
+    if (file != null) {
+      Navigator.pop(context, TransferAction(selectedDevice!, file));
+    }
   }
 }

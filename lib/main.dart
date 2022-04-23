@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transfer_file/model/file.dart';
 import 'package:transfer_file/view/home_page.dart';
 import 'package:transfer_file/view/exception/route_not_found_exception.dart';
 import 'package:transfer_file/view/result/transfer_action.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         settings: routeSettings,
       );
     } else if (routeSettings.name == SelectFilePage.routeName) {
-      return MaterialPageRoute<TransferAction>(
+      return MaterialPageRoute<File>(
         builder: (BuildContext context) => const SelectFilePage(),
         settings: routeSettings,
       );
