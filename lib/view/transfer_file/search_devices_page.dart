@@ -27,7 +27,7 @@ class SearchDevicesPage extends StatelessWidget {
           if (snapshot.hasData) {
             return Column(
               children: [
-                const Expanded(child: Center(child: Text("Searched finish"))),
+                const Expanded(child: Center(child: Text("Finish searching"))),
                 OutlinedButton(
                   onPressed: () => onDevicesSearched(snapshot.data!),
                   child: const Text("Next"),
