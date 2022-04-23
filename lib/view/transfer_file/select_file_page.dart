@@ -3,16 +3,16 @@ import 'package:transfer_file/model/device.dart';
 import 'package:transfer_file/model/file.dart';
 import 'package:transfer_file/view/result/transfer_result.dart';
 
-class TransferFilePage extends StatefulWidget {
+class SelectFilePage extends StatefulWidget {
   static const String routeName = "select-file";
 
-  const TransferFilePage({Key? key}) : super(key: key);
+  const SelectFilePage({Key? key}) : super(key: key);
 
   @override
-  State<TransferFilePage> createState() => _TransferFilePageState();
+  State<SelectFilePage> createState() => _SelectFilePageState();
 }
 
-class _TransferFilePageState extends State<TransferFilePage> {
+class _SelectFilePageState extends State<SelectFilePage> {
   File? selectedFile;
 
   @override

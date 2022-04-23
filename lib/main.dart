@@ -4,7 +4,7 @@ import 'package:transfer_file/view/exception/route_not_found_exception.dart';
 import 'package:transfer_file/view/result/transfer_result.dart';
 import 'package:transfer_file/view/transfer_file/search_devices_page.dart';
 import 'package:transfer_file/view/transfer_file/select_device_page.dart';
-import 'package:transfer_file/view/transfer_file/transfer_file_page.dart';
+import 'package:transfer_file/view/transfer_file/select_file_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,9 +38,9 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context) => const SelectDevicePage(),
         settings: routeSettings,
       );
-    } else if (routeSettings.name == TransferFilePage.routeName) {
+    } else if (routeSettings.name == SelectFilePage.routeName) {
       return MaterialPageRoute<TransferResult>(
-        builder: (BuildContext context) => const TransferFilePage(),
+        builder: (BuildContext context) => const SelectFilePage(),
         settings: routeSettings,
       );
     }
