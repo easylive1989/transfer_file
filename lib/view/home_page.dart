@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transfer_file/view/search_devices_page.dart';
+import 'package:transfer_file/view/transfer_file/search_devices_page.dart';
 
 import 'result/transfer_result.dart';
 
