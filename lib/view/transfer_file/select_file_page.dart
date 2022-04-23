@@ -44,7 +44,8 @@ class _SelectFilePageState extends State<SelectFilePage> {
           OutlinedButton(
             onPressed: () async {
               if (selectedFile != null) {
-                Navigator.pop(context, TransferAction(selectedDevice, selectedFile!));
+                await _transfer(selectedDevice, selectedFile!);
+                Navigator.pop(context, TransferResult.success);
               }
             },
             child: const Text("Transfer"),
@@ -52,6 +53,10 @@ class _SelectFilePageState extends State<SelectFilePage> {
         ],
       ),
     );
+  }
+
+  Future _transfer(Device selectedDevice, File selectedFile) async {
+    print("transfer ${selectedFile.name} to ${selectedDevice.name}");
   }
 
   List<File> _getFile() {

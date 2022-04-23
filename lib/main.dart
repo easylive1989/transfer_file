@@ -29,17 +29,17 @@ class MyApp extends StatelessWidget {
     if (routeSettings.name == HomePage.routeName) {
       return MaterialPageRoute(builder: (BuildContext context) => const HomePage());
     } else if (routeSettings.name == SearchDevicesPage.routeName) {
-      return MaterialPageRoute<TransferAction>(
+      return MaterialPageRoute<TransferResult>(
         builder: (BuildContext context) => const SearchDevicesPage(),
         settings: routeSettings,
       );
     } else if (routeSettings.name == SelectDevicePage.routeName) {
-      return MaterialPageRoute<TransferAction>(
+      return MaterialPageRoute<TransferResult>(
         builder: (BuildContext context) => const SelectDevicePage(),
         settings: routeSettings,
       );
     } else if (routeSettings.name == SelectFilePage.routeName) {
-      return MaterialPageRoute<TransferAction>(
+      return MaterialPageRoute<TransferResult>(
         builder: (BuildContext context) => const SelectFilePage(),
         settings: routeSettings,
       );

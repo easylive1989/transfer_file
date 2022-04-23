@@ -54,7 +54,7 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
   }
 
   Future _openTransferFilePage(BuildContext context) async {
-    TransferAction? transferAction = await Navigator.of(context).pushNamed<TransferAction>(SelectFilePage.routeName, arguments: selectedDevice);
-    Navigator.pop(context, transferAction);
+    TransferResult? transferResult = await Navigator.of(context).pushNamed<TransferResult>(SelectFilePage.routeName, arguments: selectedDevice);
+    Navigator.pop(context, transferResult);
   }
 }
