@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:transfer_file/model/device.dart';
-import 'package:transfer_file/view/result/transfer_result.dart';
-import 'package:transfer_file/view/transfer_file/select_file_page.dart';
 
 class SelectDevicePage extends StatefulWidget {
   static const String routeName = "select-device";
+  final List<Device> searchedDevices;
+  final Function(Device) onDeviceSelected;
 
-  const SelectDevicePage({Key? key}) : super(key: key);
+  const SelectDevicePage({
+    Key? key,
+    required this.onDeviceSelected,
+    required this.searchedDevices,
+  }) : super(key: key);
 
   @override
   State<SelectDevicePage> createState() => _SelectDevicePageState();
@@ -17,16 +21,15 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<Device> deviceList = ModalRoute.of(context)!.settings.arguments as List<Device>;
     return Scaffold(
       appBar: AppBar(title: const Text("Select Device")),
       body: Column(
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: deviceList.length,
+              itemCount: widget.searchedDevices.length,
               itemBuilder: (context, index) {
-                Device device = deviceList[index];
+                Device device = widget.searchedDevices[index];
                 return ListTile(
                   onTap: () {
                     setState(() {
@@ -43,7 +46,7 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
           OutlinedButton(
             onPressed: () {
               if (selectedDevice != null) {
-                _openTransferFilePage(context);
+                widget.onDeviceSelected(selectedDevice!);
               }
             },
             child: const Text("Next"),
@@ -51,10 +54,5 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
         ],
       ),
     );
-  }
-
-  Future _openTransferFilePage(BuildContext context) async {
-    TransferAction? transferAction = await Navigator.of(context).pushNamed<TransferAction>(SelectFilePage.routeName, arguments: selectedDevice);
-    Navigator.pop(context, transferAction);
   }
 }

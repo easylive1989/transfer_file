@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:transfer_file/model/device.dart';
-import 'package:transfer_file/view/result/transfer_result.dart';
-import 'package:transfer_file/view/transfer_file/select_device_page.dart';
 
 class SearchDevicesPage extends StatelessWidget {
   static const String routeName = "search-device";
+  final VoidCallback onBack;
+  final Function(List<Device> devices) onDevicesSearched;
 
-  const SearchDevicesPage({Key? key}) : super(key: key);
+  const SearchDevicesPage({
+    Key? key,
+    required this.onBack,
+    required this.onDevicesSearched,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Search Devices")),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: onBack
+          ),
+          title: const Text("Search Devices")),
       body: FutureBuilder<List<Device>>(
         future: _searchDevices(),
         builder: (context, snapshot) {
@@ -20,7 +29,7 @@ class SearchDevicesPage extends StatelessWidget {
               children: [
                 const Expanded(child: Center(child: Text("Searched finish"))),
                 OutlinedButton(
-                  onPressed: () => _openSelectDevicePage(context, snapshot),
+                  onPressed: () => onDevicesSearched(snapshot.data!),
                   child: const Text("Next"),
                 ),
               ],
@@ -37,12 +46,6 @@ class SearchDevicesPage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  Future _openSelectDevicePage(BuildContext context, AsyncSnapshot<List<Device>> snapshot) async {
-    TransferAction? transferAction =
-        await Navigator.of(context).pushNamed<TransferAction>(SelectDevicePage.routeName, arguments: snapshot.data);
-    Navigator.of(context).pop(transferAction);
   }
 
   Future<List<Device>> _searchDevices() async {
