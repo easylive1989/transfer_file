@@ -43,7 +43,7 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
           OutlinedButton(
             onPressed: () {
               if (selectedDevice != null) {
-                _openTransferFilePage(context);
+                _openSelectFilePage(context);
               }
             },
             child: const Text("Next"),
@@ -53,7 +53,7 @@ class _SelectDevicePageState extends State<SelectDevicePage> {
     );
   }
 
-  Future _openTransferFilePage(BuildContext context) async {
+  Future _openSelectFilePage(BuildContext context) async {
     TransferResult? transferResult = await Navigator.of(context).pushNamed<TransferResult>(SelectFilePage.routeName, arguments: selectedDevice);
     Navigator.pop(context, transferResult);
   }
