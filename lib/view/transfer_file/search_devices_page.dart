@@ -20,7 +20,7 @@ class SearchDevicesPage extends StatelessWidget {
               children: [
                 const Expanded(child: Center(child: Text("Searched finish"))),
                 OutlinedButton(
-                  onPressed: () => _openSelectDevicePage(context, snapshot),
+                  onPressed: () => _openSelectDevicePage(context, snapshot.data!),
                   child: const Text("Next"),
                 ),
               ],
@@ -39,9 +39,9 @@ class SearchDevicesPage extends StatelessWidget {
     );
   }
 
-  Future _openSelectDevicePage(BuildContext context, AsyncSnapshot<List<Device>> snapshot) async {
+  Future _openSelectDevicePage(BuildContext context, List<Device> devices) async {
     TransferResult? transferResult =
-        await Navigator.of(context).pushNamed<TransferResult>(SelectDevicePage.routeName, arguments: snapshot.data);
+        await Navigator.of(context).pushNamed<TransferResult>(SelectDevicePage.routeName, arguments: devices);
     Navigator.of(context).pop(transferResult);
   }
 
