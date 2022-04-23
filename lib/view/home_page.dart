@@ -16,13 +16,13 @@ class HomePage extends StatelessWidget {
       ),
       body: const Center(child: Text("Click + to transfer file to your friend.")),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _openSearchDevicePage(context),
+        onPressed: () => _openTransferFileFlow(context),
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  Future _openSearchDevicePage(BuildContext context) async {
+  Future _openTransferFileFlow(BuildContext context) async {
     TransferResult? transferResult = await Navigator.of(context).pushNamed<TransferResult>(TransferFileFlow.routeName);
     if (transferResult != null) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Transfer success")));
