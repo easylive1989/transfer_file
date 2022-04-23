@@ -14,17 +14,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home"),
       ),
-      body: const Text("Home"),
+      body: const Center(child: Text("Click + to transfer file to your friend.")),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          TransferResult? transferResult =
-          await Navigator.of(context).pushNamed<TransferResult>(SearchDevicesPage.routeName);
-          if (transferResult == TransferResult.success) {
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Transfer success")));
-          }
-        },
+        onPressed: () => _openSearchDevicePage(context),
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  Future _openSearchDevicePage(BuildContext context) async {
+    TransferResult? transferResult = await Navigator.of(context).pushNamed<TransferResult>(SearchDevicesPage.routeName);
+    if (transferResult == TransferResult.success) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Transfer success")));
+    }
   }
 }
