@@ -3,7 +3,7 @@ import 'package:transfer_file/model/device.dart';
 import 'package:transfer_file/model/file.dart';
 import 'package:transfer_file/view/transfer_file/search_devices_page.dart';
 
-import 'result/transfer_result.dart';
+import 'result/transfer_action.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = "home";

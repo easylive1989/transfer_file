@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transfer_file/view/home_page.dart';
 import 'package:transfer_file/view/exception/route_not_found_exception.dart';
-import 'package:transfer_file/view/result/transfer_result.dart';
+import 'package:transfer_file/view/result/transfer_action.dart';
 import 'package:transfer_file/view/transfer_file/search_devices_page.dart';
 import 'package:transfer_file/view/transfer_file/select_device_page.dart';
 import 'package:transfer_file/view/transfer_file/select_file_page.dart';

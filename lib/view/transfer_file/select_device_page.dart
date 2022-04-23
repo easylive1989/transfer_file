@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transfer_file/model/device.dart';
-import 'package:transfer_file/view/result/transfer_result.dart';
+import 'package:transfer_file/view/result/transfer_action.dart';
 import 'package:transfer_file/view/transfer_file/select_file_page.dart';
 
 class SelectDevicePage extends StatefulWidget {
