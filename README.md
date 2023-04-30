@@ -1,16 +1,1 @@
-# transfer_file
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 研究：簡化路由設計 [Link](https://medium.com/cloud-latitude-engineering-blog/%E4%BD%BF%E7%94%A8-nested-navigation-%E7%B0%A1%E5%8C%96%E8%B7%AF%E7%94%B1%E8%A8%AD%E8%A8%88-3a3ffade36bc)
